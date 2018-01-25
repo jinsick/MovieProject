@@ -80,16 +80,28 @@ public class MovieFrontControll extends HttpServlet {
          RequestDispatcher dispatcher = request.getRequestDispatcher("movieList.mo");
          dispatcher.forward(request, response);
       } else if (command.equals("/movieList.mo")) {
-         movieList = mdao.movieList(mdto);
-         RequestDispatcher dispatcher = request.getRequestDispatcher("template.jsp?page=Main_Movie_manager");
-         request.setAttribute("movieList", movieList);
-         dispatcher.forward(request, response);
-
-      }
-
-      else if (command.equals("/movieUpdate")) {
-
-      }
+          movieList = mdao.movieList(mdto);
+          if(request.getParameter("name").equals("user")) {
+         	 RequestDispatcher dispatcher = request.getRequestDispatcher("template.jsp?page=Main_Movie_User");
+              request.setAttribute("movieList", movieList);
+              dispatcher.forward(request, response);	 
+          }else if(request.getParameter("name").equals("manager")) {
+          RequestDispatcher dispatcher1 = request.getRequestDispatcher("template.jsp?page=Main_Movie_manager");
+          request.setAttribute("movieList", movieList);
+          dispatcher1.forward(request, response);}
+       }//매니저 컨트롤 메인 끝
+       
+      /* else if(command.equals("/movieUpdate")) {
+     	 movieUpdate = mdao.movieUpdete(mdto);
+     	 if(request.getParameter("name").equals("user")) {
+         	 RequestDispatcher dispatcher = request.getRequestDispatcher("template.jsp?page=Main_Movie_User");
+              request.setAttribute("movieList", movieList);
+              dispatcher.forward(request, response);
+          }else if(request.getParameter("name").equals("manager")) {
+          RequestDispatcher dispatcher1 = request.getRequestDispatcher("template.jsp?page=Main_Movie_manager");
+          request.setAttribute("movieList", movieList);
+          dispatcher1.forward(request, response);}
+       }*/
 
    }
 

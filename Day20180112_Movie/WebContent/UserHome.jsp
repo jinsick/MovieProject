@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- 	 <c:set var="pagefile" value="${param.page}"/>
-   	 <c:choose>
-  	  <c:when test="${pagefile==null}">
-  		<c:set var="pagefile" value="managerLogin"/>
-  	  </c:when>
+     <c:set var="pagefile" value="${param.page}"/>
+       <c:choose>
+       <c:when test="${pagefile==null}">
+        <c:set var="pagefile" value="Main_Movie_User"/>
+       </c:when>
      </c:choose>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ body {
 
 
 /* Style the side navigation */
-.sidenav {	
+.sidenav {   
     height: 100%;
     width: 200px;
     position: fixed;
@@ -69,33 +69,32 @@ body {
 
 <c:choose>
 <c:when test="${sessionScope.id == null }">
-	<div id="managerLog">
-  	<a href="template.jsp?page=managerLogin">Login</a>
+   <div id="managerLog">
+     <a href="template.jsp?page=managerLogin">Login</a>
   </div>
   </c:when>
   <c:otherwise>
   <div id="managerLog">
     <center><h4 style="color: white; font-size: 15px;">${sessionScope.id}님 환영합니다.</h4></center>
-  	<a href="logout.manager">LogOut</a><a href="update.manager">매니저 정보수정</a>
+     <a href="logout.manager">LogOut</a><a href="update.manager">매니저 정보수정</a>
   </div>
 </c:otherwise>  
   </c:choose>
   <br>
-  <a href="movieList.mo?name=user">User Home</a>
-  <div id="manager">
-  	<a href="template.jsp?page=Manager_Main">일매출액 분석</a>
-  </div>
-  <a href="mainList.ta">영화관 수익 시뮬</a>
-  <a href="movieList.mo?name=manager">Main제어 툴</a>
+  <a href="usertemplate.jsp?page=Main_Movie_User">User Home</a>
+  <a href="#">상영작</a>
+  <a href="#">이벤트</a>
+  <a href="#">영화후기</a>
+  <a href="#">고객센터</a>
+  <a href="template.jsp">매니저화면Test</a>
 </div>
 
-<div class="content">
+<%-- <div class="content">
   <div id="movie">
-  
-	 <jsp:include page='${pagefile}.jsp' />
+    <jsp:include page='${pagefile}.jsp' />
   </div>
   
-</div>
+</div> --%>
 
 </body>
 </html>

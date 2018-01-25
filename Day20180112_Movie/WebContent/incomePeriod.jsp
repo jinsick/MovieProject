@@ -35,20 +35,24 @@
 	<style type="text/css">
 ul {
 	list-style: none;
-	/* line-height:53px; */
-	font-size: 20px;
+	font-size: 15px;
 }
+ 
+.gan1{
+	margin-top: 108px;
+	margin-bottom: 108px;
+	}
 
 h1 {
 	font-family: "Raleway", sans-serif;
 	font-size: 20px;
-	margin-left: 1%;
-	width: 59%;
-	border: 3px solid red;
+	margin-left:1%;
+	float: left;
+	width: 60%;
 }
 
-h2 {
-	font-family: "Raleway", sans-serif;
+h2{
+font-family: "Raleway", sans-serif;
 	font-size: 20px;
 	margin-left: 1%;
 	float: left;
@@ -57,7 +61,8 @@ h2 {
 h3 {
 	font-family: "Raleway", sans-serif;
 	font-size: 20px;
-	margin-left: 1%;
+	margin-top: 2%;
+	margin-left:1%;
 	float: left;
 	width: 100%;
 }
@@ -78,7 +83,7 @@ input[type=text], select {
 	border-radius: 4px;
 	box-sizing: border-box;
 	resize: vertical;
-	font-size: 20px;
+	font-size: 15px;
 }
 
 label {
@@ -109,7 +114,6 @@ fieldset#valuesIncome {
 	background-color: hsl(0, 0%, 94%);
 	border-radius: 7px;
 	width: 100%;
-	margin-top: 1%;
 	margin-bottom: 0.5%;
 	text-align: center;
 	font-size: 15px;
@@ -121,8 +125,8 @@ fieldset#valuesIncome {
 	border-bottom: none;
 }
 
-#datepicker3, #datepicker4 {
-	width: 50%;
+#datepicker1, #datepicker2 {
+	width: 20%;
 }
 
 fieldset#incomeD_all {
@@ -132,25 +136,26 @@ fieldset#incomeD_all {
 }
 
 #line {
-	width: 40%;
+	width: 48%;
 	/* border: 3px solid blue; */
 	float: right;
 	z-index: 9999;
-}
+	margin-right: 2%;
+		}
 
-fieldset#values2 {
+fieldset#values1 {
 	float: left;
 	background-color: hsl(0, 0%, 94%);
 	border-radius: 7px;
-	width: 57%;
-	margin-bottom: 0.5%;
-	z-index: 9999;
+	width: 49%;
+	/* margin-bottom: 0.5%; */
+	margin-top: -1px;
 }
 
 fieldset#but {
 	background-color: hsl(0, 0%, 47%);
 	border-radius: 7px;
-	width: 98.5%;
+	width: 100%;
 	margin-bottom: 0.5%;
 	height: 450px; /*
 	border: 3px solid green; *
