@@ -31,9 +31,6 @@ ArrayList<TableDTO> topList = (ArrayList)request.getAttribute("totalList");
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- ===================================pie chart=============================== -->
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
 <!-- ===================================date=============================== -->
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -44,32 +41,13 @@ ArrayList<TableDTO> topList = (ArrayList)request.getAttribute("totalList");
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Raleway", sans-serif
 }
-
-h6, h7, h8 {
-	color: white;
-	font-weight: bold;
-}
-
-h9 {
-	font-family: "Raleway", sans-serif;
-	font-size: 20px;
-}
-
-h10 {
-	font-family: "Raleway", sans-serif;
-	font-size: 20px;
-	margin-top: 1%;
-}
-
 ul {
 	list-style: none;
 }
-
 owser
 #sideAll {
 	width: 25%;
 }
-
 #sidebig {
 	width: 25%;
 	float: right;
@@ -78,45 +56,36 @@ owser
 	border-radius: 15px;
 	margin-top: 2.4%;
 }
-
 #ticket {
 	background-color: hsl(0, 0%, 94%);
 	border-radius: 7px;
 }
-
 #market {
 	background-color: hsl(0, 0%, 94%);
 	border-radius: 7px;
 }
-
 #Fixedspend {
 	background-color: hsl(0, 0%, 94%);
 	border-radius: 7px;
 }
-
 input[type=number], select {
 	width: 50%;
-	padding: 5px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
 	resize: vertical;
 }
-
 input[type=text], select {
 	width: 50%;
-	padding: 5px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
 	resize: vertical;
 }
-
 label {
 	padding: 12px 12px 12px 0;
 	display: inline-block;
 }
-
 button {
 	background-color: #4CAF50;
 	color: white;
@@ -126,47 +95,38 @@ button {
 	cursor: pointer;
 	float: right;
 }
-
 input[type=submit]:hover {
 	background-color: #45a049;
 }
-
 #pieall {
 	margin-top: 9%;
 }
-
 #piefield1 {
 	width: 74%;
 	background-color: hsl(0, 0%, 47%);
 	border-radius: 15px;
 	float: left;
 }
-
 #container {
 	width: 45%;
 	float: left;
 }
-
 #containerlineT {
 	width: 52.5%;
 	float: right;
 }
-
 #table2 {
 	margin-top: 25.5%;
 }
-
 .valueIncomeAll {
 	float: left;
 	width: 74.2%;
-	margin-top: 1%;
+	margin-top: 2.5%;
 }
-
 fieldset#valuesIncome {
 	background-color: hsl(0, 0%, 47%);
 	border-radius: 15px;
 }
-
 fieldset#values1 {
 	float: left;
 	background-color: hsl(0, 0%, 94%);
@@ -175,7 +135,6 @@ fieldset#values1 {
 	margin-top: 1%;
 	margin-bottom: 0.5%;
 }
-
 fieldset#values2 {
 	float: right;
 	background-color: hsl(0, 0%, 94%);
@@ -184,7 +143,6 @@ fieldset#values2 {
 	margin-top: 1%;
 	margin-bottom: 0.5%;
 }
-
 fieldset#but {
 	float: left;
 	background-color: hsl(0, 0%, 47%);
@@ -193,7 +151,6 @@ fieldset#but {
 	margin-bottom: 0.5%;
 	height: 450px;
 }
-
 #butin {
 	background-color: hsl(0, 0%, 94%);
 	border-radius: 7px;
@@ -209,10 +166,6 @@ fieldset#but {
 	border-top: none;
 	border-bottom: none;
 }
-
-#datepicker4, #datepicker5 {
-	width: 150px;
-}
 </style>
 
 
@@ -223,7 +176,7 @@ fieldset#but {
 		<button
 			class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
 			onclick="w3_open();">
-			<i class="fa fa-bars"></i>  Menu
+			<i class="fa fa-bars"></i>  Menu
 		</button>
 	</div>
 	<!-- Overlay effect when opening sidebar on small screens -->
@@ -234,9 +187,9 @@ fieldset#but {
 	<!-- !PAGE CONTENT! -->
 	<!-- Header -->
 	<header class="w3-container" style="padding-top: 5px">
-		<h5>
+		<h1>
 			<b><i class="fa fa-dashboard"></i> Income</b>
-		</h5>
+		</h1>
 	</header>
 
 
@@ -246,9 +199,7 @@ fieldset#but {
 		<div class="w3-quarter">
 			<div class="w3-container w3-red w3-padding-16">
 				<div class="w3-left">
-					<i class="티켓이미지"></i>
-				</div>
-			<%
+				<%
 			for(int i=0;i<topList.size();i++){
 				tdto = topList.get(i);
 				totalTicketSalse = totalTicketSalse + tdto.getTicketSales();
@@ -258,13 +209,15 @@ fieldset#but {
 				
 			}
 			%>	
+					<i class="티켓이미지"></i>
+				</div>
 				
 				<div class="w3-right">
 		<h3><%=totalTicketSalse%></h3>
 				</div>
 				
 				<div class="w3-clear"></div>
-				<h4>Ticket sales</h4>
+				<h3>Ticket sales</h3>
 			</div>
 		</div>
 
@@ -287,7 +240,7 @@ fieldset#but {
 					<i class="fa fa-share-alt w3-xxxlarge"></i>
 				</div>
 				<div class="w3-right">
-					<h3><%=totalSalse %></h3>
+				<h3><%=totalSalse %></h3>
 				</div>
 				<div class="w3-clear"></div>
 				<h4>Total sales</h4>
@@ -299,19 +252,18 @@ fieldset#but {
 				<div class="w3-black" style="width: 100%;">
 					<div class="w3-left">
 						<div>
-							<div class="w3-container w3-center w3-padding w3-green"
+						<div class="w3-container w3-center w3-padding w3-green"
 								style="width: <%=totalSalseRate%>%; font-size: 27px;">+<%=totalSalseRate%>%</div>
 						</div>
 					</div>
 					<div class="w3-clear"></div>
 					<div class="w3-left">
-						<h4>Achievement rate</h4>
+						<h5>Achievement rate</h5>
 					</div>
 				</div>
 			</div>
 		</div>
 
-	
 				<!-- ===============================옆구리========================== -->
 				<div class="sideAll">
 					<fieldset id="sidebig">
@@ -321,7 +273,7 @@ fieldset#but {
 								<fieldset id="Fixedspend">
 									<ul>
 										<li><label for="날짜선택">날 짜</label> <input type="text"
-											id="datepicker3" placeholder="날짜선택: 년-월-일"
+											id="datepicker5" placeholder="날짜선택: 년-월-일"
 											style="text-align: center;" name="nal"></li>
 
 										<li><label for="자릿세">자릿세</label> <input type="number"
@@ -351,7 +303,7 @@ fieldset#but {
 								<fieldset id="ticket">
 									<ul>
 										<li><label for="날짜선택">날 짜</label> <input type="text"
-											id="datepicker1" placeholder="날짜선택: 년-월-일"
+											id="datepicker6" placeholder="날짜선택: 년-월-일"
 											style="text-align: center;" name="nal"></li>
 
 										<li><label for="할인1">일 반</label> <input type="number"
@@ -397,7 +349,7 @@ fieldset#but {
 								<fieldset id="market">
 									<ul>
 										<li><label for="날짜선택">날 짜</label> <input type="text"
-											id="datepicker2" placeholder="날짜선택: 년-월-일"
+											id="datepicker7" placeholder="날짜선택: 년-월-일"
 											style="text-align: center;" name="nal" required="required">
 										</li>
 										<li><label for="팝콘">팝콘</label> <input type="number"
@@ -457,284 +409,19 @@ fieldset#but {
 					</fieldset>
 				</div>
 
-				<!-- =========================매출액 분석============================== -->
-
-			<%-- 	<div class="valueIncomeAll">
-					<h9>매출 상세</h9>
-					<fieldset id="valuesIncome">
-
-						<fieldset id="values1">
-							<form action="report.ta" method="post">
-								<!-- <li><label for="날짜선택">날 짜</label> <input type="text"
-									id="datepicker4" placeholder="Start: 년-월-일"
-									style="text-align: center;" name="nal1" required="required">
-									~ <input type="text" id="datepicker5" placeholder="End: 년-월-일"
-									style="text-align: center;" name="nal2" required="required">
-									<input type="submit" value="호출하기"></li> -->
-								<!-- </form>
-									<form action=""> -->
-								<%
-									if (session.getAttribute("tableList") == null) {
-								%><ul>
-
-									<li><label for="날짜선택">날 짜</label> <input type="text"
-										id="datepicker4" placeholder="Start: 년-월-일"
-										style="text-align: center;" name="nal1" required="required">
-										~ <input type="text" id="datepicker5" placeholder="End: 년-월-일"
-										style="text-align: center;" name="nal2" required="required">
-										<input type="submit" value="호출하기"></li>
-									<li><label for="일평균 매출액">일 평균매출액(1인)</label> <input
-										type="number" name="incomeDay" value="<%=avgDay%>"
-										placeholder="일 평균 매출액" readonly="true">원</li>
-									<li><label for="월평균 매출액">월 평균매출액(1인)</label> <input
-										type="number" name="incomeMon" value="" placeholder="월 평균 매출액"
-										readonly="readonly">원</li>
-									<li><label for="연평균 매출액">연 평균매출액(1인)</label> <input
-										type="number" name="incomeMon" value="" placeholder="연 평균 매출액"
-										readonly="readonly">원</li>
-								</ul>
-							</form>
-
-						</fieldset>
-<form action="" method="post">
-						<fieldset id="values2">
-							<ul>
-							<li><label for="날짜선택">날짜선택</label><input type="text" id="datepicker5" placeholder="End: 년-월-일"
-										style="text-align: center;" name="todayNal" required="required">
-										<input type="submit" value="호출하기"></li>
-								<li><label for="오늘 티켓 매출 평균">오늘 티켓 매출</label> <input
-									type="number" name="incomeDay" value="" placeholder="일 평균 매출액"
-									readonly="readonly">원
-								<li>
-								<li><label for="오늘 매점 매출 평균">오늘 매점 매출</label> <input
-									type="number" name="incomeMon" value="" placeholder="월 평균 매출액"
-									readonly="readonly">원
-								<li>
-								<li><label for="1인 매출액">1인당 평균매출</label> <input
-									type="number" name="incomeMon" value="" placeholder="연 평균 매출액"
-									readonly="readonly">원
-								<li>
-							</ul>
-</form>
-							<%
-								} else {
-
-									for (int i = 0; i < tableList.size(); i++) {
-										tdto = tableList.get(i);
-										avgMonth = tdto.getAvgMonth();
-										avgDay = tdto.getAvgDay();
-										avgYear = tdto.getAvgYear();
-										toDayTicketSalse = tdto.getToDayTicketSalse();
-										toDayMarketSalse = tdto.getToDayMarketSalse();
-										avgPeopleSalse = tdto.getAvgPeopleSalse();
-									}
-							%>
-
-							<ul>
-								<li><label for="날짜선택">날 짜</label> <input type="text"
-									id="datepicker4" placeholder="Start: 년-월-일"
-									style="text-align: center;" name="nal1" required="required">
-									~ <input type="text" id="datepicker5" placeholder="End: 년-월-일"
-									style="text-align: center;" name="nal2" required="required">
-									<input type="submit" value="호출하기"></li>
-								<li><label for="일평균 매출액">일 평균매출액(1인)</label> <input
-									type="number" name="incomeDay" value="<%=avgDay%>"
-									placeholder="일 평균 매출액" readonly="true">원</li>
-
-								<li><label for="월평균 매출액">월 평균매출액(1인)</label> <input
-									type="number" name="incomeMon" value="<%=avgMonth%>"
-									placeholder="월 평균 매출액" readonly="readonly">원</li>
-								<li><label for="연평균 매출액">연 평균매출액(1인)</label> <input
-									type="number" name="incomeMon" value="<%=avgYear %>" placeholder="연 평균 매출액"
-									readonly="readonly">원</li>
-							</ul>
-							</form>
-
-						</fieldset>
-				
-
-						<fieldset id="values2">
-							<ul>
-							<li><input type="text" id="datepicker5" placeholder="End: 년-월-일"
-									style="text-align: center;" name="nal2" required="required">
-									<input type="submit" value="호출하기"></li>
-								<li><label for="오늘 티켓 매출 평균">오늘 티켓 매출</label> <input
-									type="number" name="incomeDay" value="<%=toDayTicketSalse %>" placeholder="일 평균 매출액"
-									readonly="readonly">원
-								<li>
-								<li><label for="오늘 매점 매출 평균">오늘 매점 매출</label> <input
-									type="number" name="incomeMon" value="<%=toDayMarketSalse %>" placeholder="월 평균 매출액"
-									readonly="readonly">원
-								<li>
-								<li><label for="1인 매출액">1인당 평균매출</label> <input
-									type="number" name="incomeMon" value="<%=avgPeopleSalse %>" placeholder="연 평균 매출액"
-									readonly="readonly">원
-								<li>
-							</ul>
-							<%
-								}
-							%>
-						</fieldset>
-					</fieldset> --%>
-				</div>
-			</article>
-		</section>
-		<!-- ==================================아래 총 가격 출력창========================= -->
-		<h10>날짜별 매출액</h10>
-		<fieldset id="but">
-		<%-- 	<table cellspacing="0" cellpadding="0" border="1" id="butin">
-				<tr>
-					<th>날짜</th>
-					<th>티캣판매액</th>
-					<th>매점판매액</th>
-					<th>총판매액</th>
-					<th>총할인액</th>
-					<th>당기순이익</th>
-				</tr>
-
-				<c:forEach items="${list }" var="board">
-					<tr>
-						<td>${board.nal }</td>
-						<td>${board.ticketSales }</td>
-						<td>${board.marketSalse }</td>
-						<td>${board.totalSalse }</td>
-						<td>${board.totalDiscount }</td>
-						<td>${board.netIncome }</td>
-					</tr>
-				</c:forEach>
-			</table> --%>
-			<center>
-				<jsp:include page="page.jsp" flush="true" />
-			</center>
-		</fieldset>
-	<!-- =============================Tiket pie chart==================================== -->
-		<section>
-			<!-- display:table; -->
-			<article id="pieall">
-				<h4>판매 수익(%)</h4>
-				<fieldset id="piefield1">
-					<div id="pie">
-						<div id="container"
-							style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto; margin-top: 1%; margin-bottom: 1%; margin-left: 0.5%;">
-							<hr>
-							<script>
-					Highcharts
-							.chart('container',
-									{
-										chart : {
-											plotBackgroundColor : null,
-											plotBorderWidth : null,
-											plotShadow : false,
-											type : 'pie'
-										},
-										title : {
-											text : '파트별 수익률(%)'
-										},
-										tooltip : {
-											pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
-										},
-										plotOptions : {
-											pie : {
-												allowPointSelect : true,
-												cursor : 'pointer',
-												dataLabels : {
-													enabled : true,
-													format : '<b>{point.name}</b>: {point.percentage:.1f} %',
-													style : {
-														color : (Highcharts.theme && Highcharts.theme.contrastTextColor)
-																|| 'black'
-													}
-												}
-											}
-										},
-										series : [ {
-											name : 'Brands',
-											colorByPoint : true,
-											data : [ {
-												name : '티켓',
-												y : <%=toDayTicketSalse%>
-											}, {
-												name : '매점',
-												y : <%=toDayMarketSalse%>,
-												sliced : true,
-												selected : true
-											} ]
-					} ]
-			});
-				</script>
-							<hr>
-						</div>
-					</div>
-					<!-- =============================Ticket pie chart END==================================== -->
-					<!-- =============================Ticket line chart ===================================== -->
-					<div id="lineT">
-						<div id="containerlineT"
-							style="min-width: 310px; height: 400px; margin: 0 auto; margin-top: 1%; margin-bottom: 1%; margin-right: 1%;"></div>
-						<script>
-				Highcharts.chart('containerlineT', {
-			    chart: {
-			        type: 'line'
-			    },
-			    title: {
-			        text: '매출액 추이'
-			    },
-			    subtitle: {
-			        text: ''
-			    },
-			    xAxis: {
-			        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-			    },
-			    yAxis: {
-			        title: {
-			            text: 'Temperature (°C)'
-			        }
-			    },
-			    plotOptions: {
-			        line: {
-			            dataLabels: {
-			                enabled: true
-			            },
-			            enableMouseTracking: false
-			        }
-			    },
-			    series: [{
-			        name: 'Tokyo',
-			        data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-			    }, {
-			        name: 'London',
-			        data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-			    }]
-			});
-			
-			</script>
-					</div>
-				</fieldset>
-
-		<!-- ==================================아랫쪽=============================== -->
-
-		<!-- Footer -->
-		<!-- 		<footer class="w3-container w3-padding-16 w3-light-grey">
-				<h4>FOOTER</h4>
-				<p>
-					Powered by <a href="https://www.w3schools.com/w3css/default.asp"
-						target="_blank">w3.css</a>
-				</p>
-			</footer> -->
-
-		<!-- End page content -->
-	</div>
-
-
-
-
+		
+		
+		<!-- =========================매출액 분석============================== -->
+		<div class="valueIncomeAll">
+			<jsp:include page="incomeM.jsp" />
+		</div>
+		<!-- ========================매출액 분석 끝========================= -->	
 
 	<script>
 			// Get the Sidebar
 			var mySidebar = document.getElementById("mySidebar");
-
 			// Get the DIV with overlay effect
 			var overlayBg = document.getElementById("myOverlay");
-
 			// Toggle between showing and hiding the sidebar, and add overlay effect
 			function w3_open() {
 				if (mySidebar.style.display === 'block') {
@@ -745,7 +432,6 @@ fieldset#but {
 					overlayBg.style.display = "block";
 				}
 			}
-
 			// Close the sidebar with the close button
 			function w3_close() {
 				mySidebar.style.display = "none";
@@ -794,39 +480,25 @@ fieldset#but {
 	<!-- =============날짜============== -->
 	<script>
 			$(function() {
-  				$( "#datepicker1" ).datepicker({
-    				dateFormat: 'yy-mm-dd'
- 				 });
-			});
-		</script>
-	<script>
-			$(function() {
-  				$( "#datepicker2" ).datepicker({
-    				dateFormat: 'yy-mm-dd'
- 				 });
-			});
-		</script>
-	<script>
-			$(function() {
-  				$( "#datepicker3" ).datepicker({
-    				dateFormat: 'yy-mm-dd'
- 				 });
-			});
-		</script>
-	<script>
-			$(function() {
-  				$( "#datepicker4" ).datepicker({
-    				dateFormat: 'yy-mm-dd'
- 				 });
-			});
-		</script>
-	<script>
-			$(function() {
   				$( "#datepicker5" ).datepicker({
     				dateFormat: 'yy-mm-dd'
  				 });
 			});
-	</script>
+		</script>
+	<script>
+			$(function() {
+  				$( "#datepicker6" ).datepicker({
+    				dateFormat: 'yy-mm-dd'
+ 				 });
+			});
+		</script>
+	<script>
+			$(function() {
+  				$( "#datepicker7" ).datepicker({
+    				dateFormat: 'yy-mm-dd'
+ 				 });
+			});
+		</script>
 
 	<!-- ============================평균매출액 불러오기===================== -->
 	<!-- 	<script>

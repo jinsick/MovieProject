@@ -91,6 +91,7 @@ body {
 
 <div class="content">
   <div id="movie">
+  
 	 <jsp:include page='${pagefile}.jsp' />
   </div>
   

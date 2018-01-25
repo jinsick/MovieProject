@@ -24,10 +24,10 @@
     <li><a href="#tabs-2">일 매출 분석</a></li>
   </ul>
   <div id="tabs-1">
-      <jsp:include page="incomeM.jsp" />
+      <jsp:include page="incomePeriod.jsp" />
   </div>
   <div id="tabs-2">
-      <jsp:include page="incomeD.jsp" />
+      <jsp:include page="incomeDay.jsp" />
   </div>
 </div>
  

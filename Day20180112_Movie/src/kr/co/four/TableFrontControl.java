@@ -43,43 +43,67 @@ public class TableFrontControl extends HttpServlet {
 
 		if (command.equals("/mainList.ta")) {//테이블 평균 넘기기
 			tableList = tdao.head(tdto);
-			System.out.println(tableList);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("template.jsp?page=simulator");
 			request.setAttribute("totalList", tableList);
 			dispatcher.forward(request, response);
+			
 		}//테이블 리스트 넘기기
 		
 	else if (command.equals("/incomPeriod.ta")) {
 			// HttpSession session = request.getSession();
 			HttpSession session = request.getSession();
+			session.removeAttribute("tableList");
+			session.removeAttribute("list");
+			session.removeAttribute("page");
 			tdto.setNal1(request.getParameter("nal1"));
 			tdto.setNal2(request.getParameter("nal2"));
-			tableList = tdao.report(tdto);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("mainList.ta");
-			session.setAttribute("tableList", tableList);
-			dispatcher.forward(request, response);
-
-		} 
-		else if (command.equals("/totalList.ta")) {// 목록
-			HttpSession session = request.getSession(false);
+			float totalSalse = 0;
+			tableList = tdao.report(tdto, totalSalse);
+			
 			int curPage = 1;// 기본페이지
 			if (request.getParameter("curPage") != null) {
 				curPage = Integer.parseInt(request.getParameter("curPage"));
 			}
-			PageTo list = tdao.page(curPage);
-
-			RequestDispatcher dis = request.getRequestDispatcher("template.jsp?page=simulator");
+			PageTo list = tdao.page(curPage, tdto,tdto.getNal1(),tdto.getNal2());
+			
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("mainList.ta");
+			session.setAttribute("tableList", tableList);
 			session.setAttribute("page", list);
-			// listPage.jsp에서 목록 리스트 데이터 저장
 			session.setAttribute("list", list.getBoardlist());
-			// page.jsp에서 페이징 처리 데이터 저장
+			dispatcher.forward(request, response);
+		} 
+		else if (command.equals("/incomeDay.ta")) {// 목록
+			HttpSession session = request.getSession(false);
+			session.removeAttribute("tableList");
+			session.removeAttribute("list");
+			session.removeAttribute("page");
+			String nal1 = request.getParameter("nal1");
+			tdto.setNal(nal1);
+			float totlaSalse=0;
+			tableList = tdao.incomeDay(tdto,totlaSalse);
+			
+			
+			int curPage = 1;// 기본페이지
+			if (request.getParameter("curPage") != null) {
+				curPage = Integer.parseInt(request.getParameter("curPage"));
+			}
+			PageTo list = tdao.page(curPage, tdto,nal1,nal1);
+System.out.println(list);
+			RequestDispatcher dis = request.getRequestDispatcher("mainList.ta");
+			session.setAttribute("page", list);
+			session.setAttribute("list", list.getBoardlist());
+			session.setAttribute("tableList", tableList);
 			dis.forward(request, response);
 
 		} 
 		
-		else if(command.equals("/mainDelete")) {//리스트 삭제
-			String deleteNal = request.getParameter("nal");
-			tdto.setNal(deleteNal);
+		else if(command.equals("/simulatorDelete.ta")) {//리스트 삭제
+			tdto.setNal(request.getParameter("nal"));
+			tdao.ticketDelete(tdto);
+			tdao.marketDelete(tdto);
+			response.sendRedirect("template.jsp?page = simulator");
+			
 		}//리스트삭제
 		
 		
