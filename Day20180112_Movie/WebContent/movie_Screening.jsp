@@ -97,6 +97,11 @@ function popup_win9() {
 			<td><a href="Usertemplate.jsp?page=movie_Screening"><img src="images/신과함게.jpg" onclick="popup_win2()"></a></td>
 			<td><a href="Usertemplate.jsp?page=movie_Screening"><img src="images/쥬만지.jpg" onclick="popup_win3()"></a></td>
 		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
 	</table>
 
 	<table>
@@ -110,6 +115,11 @@ function popup_win9() {
 			<td><a href="Usertemplate.jsp?page=movie_Screening"><img src="images/어쌔신더비기닝.jpg" onclick="popup_win5()"></a></td>
 			<td><a href="Usertemplate.jsp?page=movie_Screening"><img src="images/위대한 쇼맨.jpg" onclick="popup_win6()"></a></td>
 		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
 	</table>
 	<table>
 		<tr>
@@ -121,6 +131,11 @@ function popup_win9() {
 			<td><a href="Usertemplate.jsp?page=movie_Screening"><img src="images/dun.jpg" onclick="popup_win7()"></a></td>
 			<td><a href="Usertemplate.jsp?page=movie_Screening"><img src="images/홈커밍.jpg" onclick="popup_win8()"></a></td>
 			<td><a href="Usertemplate.jsp?page=movie_Screening"><img src="images/더울프오브더월스트릿.jpg" onclick="popup_win9()"></a></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
 		</tr>
 	</table>
 </body>
