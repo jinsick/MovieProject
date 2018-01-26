@@ -11,6 +11,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import kr.ac.daegu.ConstVal;
+
 public class SimulHoldDAO {
 	public DataSource dataFactory;
 	private Connection conn;
@@ -24,7 +26,7 @@ public class SimulHoldDAO {
 		try {
 			Context ctx = new InitialContext();
 			holdList = new ArrayList<SimulHoldDTO>();
-			dataFactory=(DataSource)ctx.lookup("java:comp/env/jdbc/Oracle11g");
+			dataFactory=(DataSource)ctx.lookup(ConstVal.DB_NAME);
 			conn = dataFactory.getConnection();
 		} catch (NamingException e) {
 			e.printStackTrace();
@@ -33,7 +35,7 @@ public class SimulHoldDAO {
 		}
 	}
 	
-	public void holdinsert(SimulHoldDTO simulHoldDTO) {//고정금액 넣기
+	public void holdinsert(SimulHoldDTO simulHoldDTO) {
 		sql="insert into holdmoney(nal,placem,wage,tax) values(?,?,?,?)";
 		try {		
 			pstmt = conn.prepareStatement(sql);
@@ -45,5 +47,5 @@ public class SimulHoldDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}//고정금액 넣기
+	}
 }

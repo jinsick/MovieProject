@@ -12,6 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import kr.ac.daegu.ConstVal;
+
 
 public class TableDAO {
 
@@ -27,7 +29,7 @@ public class TableDAO {
 	public TableDAO() {
 		try {
 			Context ctx = new InitialContext();
-			dataFactory = (DataSource) ctx.lookup("java:comp/env/jdbc/Oracle11g");
+			dataFactory = (DataSource) ctx.lookup(ConstVal.DB_NAME);
 			conn = dataFactory.getConnection();
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -36,10 +38,11 @@ public class TableDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 
 	}
 
-	public int totalCount() {// 페이징처리: 전체레코드 개수 구하기
+	public int totalCount() {
 		int count = 0;
 		try {
 			sql = "select count(*) from ticket";
@@ -52,9 +55,9 @@ public class TableDAO {
 			e.printStackTrace();
 		}
 		return count;
-	}// 페이징처리: 전체레코드 개수 구하기
+	}
 
-	public PageTo page(int curPage, TableDTO tdto,String nal1, String nal2) {// 페이지구현
+	public PageTo page(int curPage, TableDTO tdto,String nal1, String nal2) {
 		PageTo pageTo = new PageTo();
 		int totalCount = totalCount();
 		ArrayList<TableDTO> list = new ArrayList<TableDTO>();
@@ -66,16 +69,14 @@ public class TableDAO {
 			System.out.println("??");
 			System.out.println(nal1);
 			System.out.println(nal2);
-			// TYPE_SCROLL_INSENSITIVE:scroll은 가능하나, 변경된 사항은 적용되지 않음
-			// 양방향, 스크롤 시 업데이트 반영안함
-			// CONCUR_READ_ONLY :커서의 위치에서 정보 업데이트 불가,ResultSet의 변경이 불가능
+
 			rs = pstmt.executeQuery();
 			int perPage = pageTo.getPerPage();// 15
 			int skip = (curPage - 1) * perPage;
 			if (skip > 0) {
 				rs.absolute(skip);
 			}
-			// ResultSet의 absolute메소드를 이용하여 해당 페이지의 Cursor 의 위치로 이동...
+
 			for (int i = 0; i < perPage && rs.next(); i++) {
 				String nal = rs.getString("nal");
 				float ticketSalse = rs.getFloat("original") + rs.getFloat("morning") + rs.getFloat("night")
@@ -96,14 +97,14 @@ public class TableDAO {
 				data.setNetIncome(netIncome);
 				list.add(data);
 			}
-			pageTo.setBoardlist(list);// ArrayList 저장
-			pageTo.setTotalCount(totalCount);// 전체레코드개수
-			pageTo.setCurPage(curPage);// 현재페이지
+			pageTo.setBoardlist(list);
+			pageTo.setTotalCount(totalCount);
+			pageTo.setCurPage(curPage);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return pageTo;
-	}// 페이지구현
+	}
 
 	public ArrayList<TableDTO> report(TableDTO tdto, float totalSalse) {
 		try {
@@ -133,7 +134,7 @@ public class TableDAO {
 			System.out.println(nal1);
 			System.out.println(nal2);
 			System.out.println(tableList);
-			sql = "SELECT (to_date(?)-to_date(?)) as dat, nal from ticket order by nal";
+			sql = "SELECT (STR_TO_DATE(?, '%Y-%m-%d')-STR_TO_DATE(?, '%Y-%m-%d')) as dat, nal from ticket order by nal";
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, nal2);

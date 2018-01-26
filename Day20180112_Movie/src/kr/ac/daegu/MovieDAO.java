@@ -25,7 +25,7 @@ public class MovieDAO {
    public MovieDAO() {
       try {
          Context ctx = new InitialContext();
-         datafactory = (DataSource) ctx.lookup("java:comp/env/jdbc/Oracle11g");
+         datafactory = (DataSource) ctx.lookup(ConstVal.DB_NAME);
          conn = datafactory.getConnection();
       } catch (NamingException e) {
          // TODO Auto-generated catch block

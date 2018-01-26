@@ -11,7 +11,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import kr.co.daegu.analysis.*;;
+import kr.ac.daegu.ConstVal;;
 
 public class AnalysisDAO {
 	public DataSource dataFactory;
@@ -23,18 +23,18 @@ public class AnalysisDAO {
 	private boolean result=false;
 	private ArrayList<AnalysisDTO> analysisList;
 	
-	public AnalysisDAO() {//贸府苞沥
+	public AnalysisDAO() {
 		try {
 			Context ctx = new InitialContext();
 			analysisList = new ArrayList<AnalysisDTO>();
-			dataFactory = (DataSource) ctx.lookup("java:comp/env/jdbc/Oracle11g");
+			dataFactory = (DataSource) ctx.lookup(ConstVal.DB_NAME);
 			conn=dataFactory.getConnection();
 		} catch (NamingException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}//贸府苞沥
+	}
 	
 	public void analysisDayAver(AnalysisDTO analysisDTO) {
 		sql="select avg(original*toriginal + ) from ticketcount where nal between ? and ?";

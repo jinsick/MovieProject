@@ -11,6 +11,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import kr.ac.daegu.ConstVal;
+
 public class SimulMarketDAO {
 	public DataSource dataFactory;
 	private Connection conn;
@@ -20,18 +22,18 @@ public class SimulMarketDAO {
 	private ArrayList<SimulMarketDTO> marketList;
 	private int cnt;
 	
-	public SimulMarketDAO() {//原掴 持失切
+	public SimulMarketDAO() {
 		try {
 			Context ctx = new InitialContext();
 			marketList = new ArrayList<SimulMarketDTO>();
-			dataFactory=(DataSource)ctx.lookup("java:comp/env/jdbc/Oracle11g");
+			dataFactory=(DataSource)ctx.lookup(ConstVal.DB_NAME);
 			conn = dataFactory.getConnection();
 		} catch (NamingException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}//原掴 持失切
+	}
 	
 	public void marketinsert(SimulMarketDTO simulMarketDTO) {
 		sql = "insert into market(nal,pop,col,oging,dog,chiken,coffee,combo1,combo2,water1) values(?,?,?,?,?,?,?,?,?,?)";

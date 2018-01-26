@@ -10,6 +10,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import kr.ac.daegu.ConstVal;
+
    public class managerDAO {
    private DataSource dataFactory;
    private Connection conn;
@@ -21,7 +23,7 @@ import javax.sql.DataSource;
    public managerDAO() {
          try {
             Context ctx = new InitialContext();
-            dataFactory = (DataSource)ctx.lookup("java:comp/env/jdbc/Oracle11g");
+            dataFactory = (DataSource)ctx.lookup(ConstVal.DB_NAME);
             conn = dataFactory.getConnection();
          } catch (NamingException e) {
             e.printStackTrace();
@@ -30,7 +32,7 @@ import javax.sql.DataSource;
          }
    }
    
-   public void managerRegister(managerDTO mdto) {//등록
+   public void managerRegister(managerDTO mdto) {
       sql = "insert into manager(id,pw,pwsh,lv,part,name) values(?,?,?,?,?,?)";
       try {
          pstmt = conn.prepareStatement(sql);
@@ -44,8 +46,8 @@ import javax.sql.DataSource;
       } catch (SQLException e) {
          e.printStackTrace();
       }
-   }//등록
-   public boolean managerIdCheck(managerDTO mdto) {//아이디 중복여부
+   }
+   public boolean managerIdCheck(managerDTO mdto) {
       boolean idCheck = false;
       try {
          sql = "select id from manager where id=?";
@@ -59,8 +61,8 @@ import javax.sql.DataSource;
          e.printStackTrace();
       }
       return idCheck;
-   }//아이디 중복여부
-   public String managerIdSearch(managerDTO mdto) {//아이디찾기
+   }
+   public String managerIdSearch(managerDTO mdto) {
       sql = "select id from manager where name=? and part=?";
       try {
          pstmt = conn.prepareStatement(sql);
@@ -74,8 +76,8 @@ import javax.sql.DataSource;
          e.printStackTrace();
       }
       return id;
-   }//아이디찾기
-   public String managerPwSearch(managerDTO mdto) {//비밀번호 찾기
+   }
+   public String managerPwSearch(managerDTO mdto) {
       String pw=null;
       sql = "select pw from manager where id=? and name=? and part=?";
       try {
@@ -91,8 +93,8 @@ import javax.sql.DataSource;
          e.printStackTrace();
       }
       return pw;
-   }//비밀번호찾기
-   public boolean managerLogin(managerDTO mdto) {//로그인
+   }
+   public boolean managerLogin(managerDTO mdto) {
       boolean login=false;
       sql = "select id,pw from manager where id=? and pw=?";
       try {
@@ -107,8 +109,8 @@ import javax.sql.DataSource;
          e.printStackTrace();
       }
       return login;
-   }//로그인
-   public managerDTO managerUpdateView(managerDTO mdto) {//수정
+   }
+   public managerDTO managerUpdateView(managerDTO mdto) {
       sql = "select id,pw,pwsh,lv,part,name from manager where id=?";
       try {
          pstmt = conn.prepareStatement(sql);
@@ -126,8 +128,8 @@ import javax.sql.DataSource;
          e.printStackTrace();
       }
       return mdto;
-   }//수정
-   public void managerUpdate(managerDTO mdto) {//수정view
+   }
+   public void managerUpdate(managerDTO mdto) {
       sql = "update manager set pw=?, pwsh=?, lv=?, part=?, name=? where id=?";
       try {
          pstmt = conn.prepareStatement(sql);
@@ -141,9 +143,9 @@ import javax.sql.DataSource;
       } catch (SQLException e) {
          e.printStackTrace();
       }
-   }//수정view
+   }
    
-   public void managerLeave(managerDTO mdto) {//삭제
+   public void managerLeave(managerDTO mdto) {
       try {
          sql = "delete from manager where id=?";
          pstmt = conn.prepareStatement(sql);
@@ -152,5 +154,5 @@ import javax.sql.DataSource;
       } catch (SQLException e) {
          e.printStackTrace();
       }
-   }//삭제
+   }
 }

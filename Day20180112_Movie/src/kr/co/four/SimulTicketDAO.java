@@ -11,6 +11,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import kr.ac.daegu.ConstVal;
+
 
 
 public class SimulTicketDAO {
@@ -26,7 +28,7 @@ public class SimulTicketDAO {
 		try {
 			Context ctx = new InitialContext();
 			ticketList = new ArrayList<SimulTicketDTO>();
-			dataFactory=(DataSource)ctx.lookup("java:comp/env/jdbc/Oracle11g");
+			dataFactory=(DataSource)ctx.lookup(ConstVal.DB_NAME);
 			conn = dataFactory.getConnection();
 		} catch (NamingException e) {
 			e.printStackTrace();
@@ -34,13 +36,8 @@ public class SimulTicketDAO {
 			e.printStackTrace();
 		}
 	}
-	//클로즈 들어가야함 여기
 	
-	
-	
-	//클로즈자리
-	
-	public void ticketInsert(SimulTicketDTO simulTicketDTO) {//티켓 갯수 체크
+	public void ticketInsert(SimulTicketDTO simulTicketDTO) {
 		sql="insert into ticket(nal,original,morning,night,coupon,wend,ticketsu) values(?,?,?,?,?,?,?)";
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -55,7 +52,6 @@ public class SimulTicketDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}//티켓 갯수 등록
-	
+	}
 	
 }
