@@ -4,7 +4,7 @@
 <c:set var="pagefile" value="${param.page}"/>
 <c:choose>
     <c:when test="${pagefile==null}">
-      <c:set var="pagefile" value="Main_Movie_User"/>
+      <c:set var="pagefile" value="movieList.mo?name=user"/>
     </c:when>
 </c:choose>
 
@@ -77,7 +77,7 @@ body {
 </c:otherwise>  
 </c:choose>
   <br>
-  <a href="Usertemplate.jsp?page=Main_Movie_User">User Home</a>
+  <a href="movieList.mo?name=user">User Home</a>
   <a href="Usertemplate.jsp?page=movie_Screening">상영작</a>
   <a href="Usertemplate.jsp?page=event">이벤트</a>
   <a href="#">영화후기</a>
