@@ -170,6 +170,10 @@ div#regist3{
                                  <input type="text" name="genre" value="<%=mdto.getKind()%>" readonly="readonly">
                                  </td>
                               </tr>
+                              <tr>
+                              	<td><input type="submit" value="예매하기" onclick="ticketing"
+                              	></td>
+                              </tr>
                            </table>
                      </div>
                   </td>
@@ -182,6 +186,8 @@ div#regist3{
             }
          %>
          </div>
+       
+         
 	<!-- ==================================블루베리 바 ====================== -->
     <!-- Slideshow next/previous buttons -->
    <div id="bar">
