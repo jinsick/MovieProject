@@ -79,7 +79,8 @@ body {
   <a href="movieList.mo?name=user">User Home</a>
   <a href="Usertemplate.jsp?page=movie_Screening">상영작</a>
   <a href="Usertemplate.jsp?page=event">이벤트</a>
-  <a href="#">영화후기</a>
+  <a href="Usertemplate.jsp?page=ticketing">영화예매</a>
+  <a href="Usertemplate.jsp?page=userboard">영화후기</a>
   <a href="#">고객센터</a>
 </div>
 
