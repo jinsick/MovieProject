@@ -171,7 +171,8 @@ div#regist3{
                                  </td>
                               </tr>
                               <tr>
-                              	<td><input type="submit" value="예매하기" onclick="ticketing"></td>
+                              	<td><input type="submit" value="예매하기" onclick="ticketing"
+                              	></td>
                               </tr>
                            </table>
                      </div>

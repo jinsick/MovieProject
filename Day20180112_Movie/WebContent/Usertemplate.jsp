@@ -41,8 +41,7 @@ body {
     padding: 16px;
     
     text-decoration: none;
-    display: block;
-    
+    display: block; 
 }
 
 /* Change color on hover */
