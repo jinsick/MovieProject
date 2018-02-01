@@ -50,35 +50,7 @@
 		cursor: pointer;
 	}
 </style>
-<script type="text/javascript">
-function popup_win1() { 
-	window.open("images/코코.jpg", "m1", "width=560, height=800,  scrollbars=0");
-	}
-function popup_win2() { 
-	window.open("images/신과함게.jpg", "m2", "width=530, height=755,  scrollbars=0");
-	}
-function popup_win3() { 
-	window.open("images/쥬만지.jpg", "m3", "width=560, height=800,  scrollbars=0");
-	}
-function popup_win4() { 
-	window.open("images/강철비.jpg", "m4", "width=560, height=800,  scrollbars=0");
-	}
-function popup_win5() { 
-	window.open("images/어쌔신더비기닝.jpg", "m5", "width=560, height=800,  scrollbars=0");
-	}
-function popup_win6() { 
-	window.open("images/위대한 쇼맨.jpg", "m6", "width=560, height=800,  scrollbars=0");
-	}
-function popup_win7() { 
-	window.open("images/dun.jpg", "m7", "width=560, height=800,  scrollbars=0");
-	}
-function popup_win8() { 
-	window.open("images/홈커밍.jpg", "m8", "width=480, height=720,  scrollbars=0");
-	}
-function popup_win9() { 
-	window.open("images/더울프오브더월스트릿.jpg", "m9", "width=560, height=800,  scrollbars=0");
-	}
-</script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>

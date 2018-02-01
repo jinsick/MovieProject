@@ -54,6 +54,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<form action="" method="post">
 	<table>
 		<tr>
 			<th>No.1</th>
@@ -63,7 +64,7 @@
 		<tr>
 			<td><a href="Usertemplate.jsp?page=index.html"><img src="images/코코.jpg"></a></td>
 			<td><a href="Usertemplate.jsp?page=index.html"><img src="images/신과함게.jpg"></a></td>
-			<td><a href="Usertemplate.jsp?page=index.html"><img src="images/쥬만지.jpg"></a></td>
+			<td><a href="Usertemplate.jsp?page=index.html"><img src="images/쥬만지.jpg" ></a></td>
 		</tr>
 	</table>
 
@@ -79,7 +80,7 @@
 			<td><a href="Usertemplate.jsp?page=index.html"><img src="images/위대한 쇼맨.jpg"></a></td>
 		</tr>
 	</table>
-	<table>
+	<table> 
 		<tr>
 			<th>No.7</th>
 			<th>No.8</th>
@@ -91,5 +92,6 @@
 			<td><a href="Usertemplate.jsp?page=index.html"><img src="images/더울프오브더월스트릿.jpg"></a></td>
 		</tr>
 	</table>
+	</form>
 </body>
 </html>

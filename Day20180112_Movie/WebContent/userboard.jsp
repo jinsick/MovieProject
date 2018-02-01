@@ -6,17 +6,11 @@
 <head>
 <style type="text/css">
 body { font-size : 15pt;
-<<<<<<< HEAD
       font-weight: bold}
 #title {font-size: 30pt;
       font-family:'Georgia', serif; 
       font-style:italic}
-=======
-		font-weight: bold}
-#title {font-size: 30pt;
-		font-family:'Georgia', serif; 
-		font-style:italic}
->>>>>>> branch 'master' of https://github.com/jinsick/MovieProject.git
+
 table.type08 {
     border-collapse: collapse;
     text-align: left;

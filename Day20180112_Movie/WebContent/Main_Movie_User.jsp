@@ -89,20 +89,19 @@ h1 {
    display: none;
    /* border: 3px solid green; */
    width: 90%;
-   margin-left: 5%;
+   margin:0 auto;
    margin-bottom: 1%;
 	}
 div#movie2{
    	width: 60%; 
 	height:30%;
 	/* border: 3px solid blue; */
-	 margin-left: 20%; 
+	margin: 0 auto;
 	}
 	
 div#regist3{ 
-	width: 100%;
+	width: 70%;
 	}
-
 
 
 </style>
@@ -122,13 +121,13 @@ div#regist3{
                <tr>
                   <td>
                      <div>
-                        <img src="images/<%=mdto.getPicture()%>" style="max-height: 600px; max-width: 450px;">
+                        <img src="images/<%=mdto.getPicture()%>" style="max-height: 600px; max-width: 550px;">
                      </div>
                   </td>
                   <td>
                      <div id="regist3">
                            <input type="hidden" name="no" value="0">
-                           <table style="width: 400px;">
+                           <table style="width: 270px;">
                               <tr>
                                  <td>
                                  <label for="영화제목">Title</label> 

@@ -30,7 +30,7 @@
 	
 	div#tabs{
 	top:30px;
-	width: 60%;
+	width: 80%;
 	height:650px;
 	margin: 0 auto;
 	}

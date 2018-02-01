@@ -82,14 +82,15 @@ public class MovieFrontControll extends HttpServlet {
       } else if (command.equals("/movieList.mo")) {
           movieList = mdao.movieList(mdto);
           if(request.getParameter("name").equals("user")) {
-         	 RequestDispatcher dispatcher = request.getRequestDispatcher("Usertemplate.jsp?page=Main_Movie_User");
+         	 RequestDispatcher dispatcher = request.getRequestDispatcher("usertemplate.jsp?page=Main_Movie_User");
               request.setAttribute("movieList", movieList);
-              dispatcher.forward(request, response);	 
+              dispatcher.forward(request, response);
+              
           }else if(request.getParameter("name").equals("manager")) {
           RequestDispatcher dispatcher1 = request.getRequestDispatcher("template.jsp?page=Main_Movie_manager");
           request.setAttribute("movieList", movieList);
           dispatcher1.forward(request, response);}
-       }//¸Å´ÏÀú ÄÁÆ®·Ñ ¸ÞÀÎ ³¡
+       }//ï¿½Å´ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
        
       /* else if(command.equals("/movieUpdate")) {
      	 movieUpdate = mdao.movieUpdete(mdto);
